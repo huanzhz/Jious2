@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "982892461513",
+    "firebase_url": "https://jious2.firebaseio.com",
+    "project_id": "jious2",
+    "storage_bucket": "jious2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:982892461513:android:69c2902ff04ecd0b",
+        "android_client_info": {
+          "package_name": "com.jious2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "982892461513-bl65g4h2jv19bv93igj0e6kivmjvotr3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jious2",
+            "certificate_hash": "009533c618b6f188a2090be6e575820cf1d1d94e"
+          }
+        },
+        {
+          "client_id": "982892461513-q8m1d1r39ce1187jq3cn5tg1nbcevfnd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCoNM2nR5Ybt6vTZqh8Q-dmOPdctK69ze8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "982892461513-q8m1d1r39ce1187jq3cn5tg1nbcevfnd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
