@@ -1,5 +1,6 @@
 package com.jious2;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +8,8 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.widget.TableLayout;
 
+import com.google.firebase.auth.FirebaseUser;
+import com.jious2.AccountActivity.LoginActivity;
 import com.jious2.Adapters.TabsAccessorAdapter;
 
 public class MainActivity extends AppCompatActivity {
@@ -15,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager myViewPager;
     private TabLayout myTabLayout;
     private TabsAccessorAdapter myTabsAccessorAdapter;
+
+    private FirebaseUser currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,5 +36,19 @@ public class MainActivity extends AppCompatActivity {
 
         myTabLayout = (TabLayout) findViewById(R.id.main_tabs);
         myTabLayout.setupWithViewPager(myViewPager);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        if(currentUser == null){
+            SendUserToLoginActivity();
+        }
+    }
+
+    private void SendUserToLoginActivity(){
+        Intent loginInent = new Intent(MainActivity.this, LoginActivity.class);
+        startActivity(loginInent);
     }
 }
