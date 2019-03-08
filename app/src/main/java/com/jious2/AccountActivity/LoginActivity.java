@@ -23,7 +23,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onStart();
 
         if(currentUser == null){
-            SendUserToMainActivity();
+            //SendUserToMainActivity();
         }
     }
 
