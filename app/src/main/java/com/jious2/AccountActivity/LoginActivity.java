@@ -53,12 +53,12 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void SendUserToMainActivity(){
-        Intent loginInent = new Intent(LoginActivity.this, MainActivity.class);
-        startActivity(loginInent);
+        Intent loginIntent = new Intent(LoginActivity.this, MainActivity.class);
+        startActivity(loginIntent);
     }
 
     private void SendUserToRegisterActivity(){
-        Intent registerInent = new Intent(LoginActivity.this, RegisterActivity.class);
-        startActivity(registerInent);
+        Intent registerIntent = new Intent(LoginActivity.this, RegisterActivity.class);
+        startActivity(registerIntent);
     }
 }
