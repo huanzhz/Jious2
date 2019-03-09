@@ -14,6 +14,7 @@ import android.widget.TableLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.jious2.AccountActivity.LoginActivity;
+import com.jious2.AccountActivity.SettingsActivity;
 import com.jious2.Adapters.TabsAccessorAdapter;
 
 public class MainActivity extends AppCompatActivity {
@@ -55,11 +56,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void SendUserToLoginActivity(){
-        Intent loginInent = new Intent(MainActivity.this, LoginActivity.class);
-        startActivity(loginInent);
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
@@ -80,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         }
         if(item.getItemId() == R.id.main_settings_option)
         {
-
+            SendUserToSettingsActivity();
         }
         if(item.getItemId() == R.id.main_find_friends_option)
         {
@@ -88,4 +84,15 @@ public class MainActivity extends AppCompatActivity {
         }
         return true;
     }
+
+    private void SendUserToLoginActivity(){
+        Intent loginInent = new Intent(MainActivity.this, LoginActivity.class);
+        startActivity(loginInent);
+    }
+
+    private void SendUserToSettingsActivity(){
+        Intent settingsInent = new Intent(MainActivity.this, SettingsActivity.class);
+        startActivity(settingsInent);
+    }
+
 }
