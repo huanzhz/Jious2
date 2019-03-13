@@ -19,7 +19,8 @@
             android:parentActivityName=".MainActivity"></activity>
         <activity android:name=".AccountActivity.PhoneLoginActivity" />
         <activity android:name=".GroupChatActivity" />
-        <activity android:name=".AccountActivity.SettingsActivity" />
+        <activity android:name=".AccountActivity.SettingsActivity"
+            android:parentActivityName=".MainActivity"/>
         <activity android:name=".AccountActivity.RegisterActivity" />
         <activity android:name=".AccountActivity.LoginActivity" />
         <activity android:name=".MainActivity">
