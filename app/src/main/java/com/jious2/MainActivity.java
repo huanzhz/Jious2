@@ -11,10 +11,8 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.EditText;
-import android.widget.TableLayout;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -26,6 +24,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.jious2.AccountActivity.FindFriendsActivity;
 import com.jious2.AccountActivity.LoginActivity;
 import com.jious2.AccountActivity.SettingsActivity;
 import com.jious2.Adapters.TabsAccessorAdapter;
@@ -129,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
         }
         if(item.getItemId() == R.id.main_find_friends_option)
         {
-
+            SendUserToFindFriendsActivity();
         }
         return true;
     }
@@ -183,17 +182,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void SendUserToLoginActivity(){
-        Intent loginInent = new Intent(MainActivity.this, LoginActivity.class);
-        loginInent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(loginInent);
+        Intent loginIntent = new Intent(MainActivity.this, LoginActivity.class);
+        loginIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(loginIntent);
         finish();
     }
 
     private void SendUserToSettingsActivity(){
-        Intent settingsInent = new Intent(MainActivity.this, SettingsActivity.class);
-        settingsInent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(settingsInent);
-        finish();
+        Intent settingsIntent = new Intent(MainActivity.this, SettingsActivity.class);
+        startActivity(settingsIntent);
+    }
+
+    private void SendUserToFindFriendsActivity(){
+        Intent findFriendsIntent = new Intent(MainActivity.this, FindFriendsActivity.class);
+        startActivity(findFriendsIntent);
+
     }
 
 }
