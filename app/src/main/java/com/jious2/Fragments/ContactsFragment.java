@@ -73,7 +73,7 @@ public class ContactsFragment extends Fragment {
                 = new FirebaseRecyclerAdapter<Contacts, ContactsViewHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull final ContactsViewHolder holder, int position, @NonNull Contacts model) {
-                String userIDs = getRef(position).getKey();
+                final String userIDs = getRef(position).getKey();
 
                 UsersRef.child(userIDs).addValueEventListener(new ValueEventListener() {
                     @Override
