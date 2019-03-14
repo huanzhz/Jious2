@@ -25,9 +25,6 @@ import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class ContactsFragment extends Fragment {
 
     private View ContactsView;
@@ -54,7 +51,7 @@ public class ContactsFragment extends Fragment {
         mAuth = FirebaseAuth.getInstance();
         currentUserID = mAuth.getCurrentUser().getUid();
 
-        ContactsRef = FirebaseDatabase.getInstance().getReference().child("Contacts");
+        ContactsRef = FirebaseDatabase.getInstance().getReference().child("Contacts").child(currentUserID);
         UsersRef = FirebaseDatabase.getInstance().getReference().child("Users");
 
         return ContactsView;
@@ -73,7 +70,7 @@ public class ContactsFragment extends Fragment {
                 = new FirebaseRecyclerAdapter<Contacts, ContactsViewHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull final ContactsViewHolder holder, int position, @NonNull Contacts model) {
-                final String userIDs = getRef(position).getKey();
+                String userIDs = getRef(position).getKey();
 
                 UsersRef.child(userIDs).addValueEventListener(new ValueEventListener() {
                     @Override

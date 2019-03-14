@@ -80,6 +80,7 @@ public class GroupsFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Set<String> set = new HashSet<>();
+
                 Iterator iterator = dataSnapshot.getChildren().iterator();
 
                 while(iterator.hasNext())
