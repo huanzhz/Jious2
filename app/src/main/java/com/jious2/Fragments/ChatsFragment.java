@@ -1,6 +1,7 @@
 package com.jious2.Fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -19,6 +20,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.jious2.ChatActivity;
 import com.jious2.Model.Contacts;
 import com.jious2.R;
 import com.squareup.picasso.Picasso;
@@ -80,18 +82,32 @@ public class ChatsFragment extends Fragment {
                         UsersRef.child(usersID).addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                if(dataSnapshot.hasChild("image"))
+
+                                if(dataSnapshot.exists())
                                 {
-                                    final String retImage = dataSnapshot.child("image").getValue().toString();
-                                    Picasso.get().load(retImage).into(holder.profileImage);
+                                    if(dataSnapshot.hasChild("image"))
+                                    {
+                                        final String retImage = dataSnapshot.child("image").getValue().toString();
+                                        Picasso.get().load(retImage).into(holder.profileImage);
+                                    }
+
+                                    final String retName = dataSnapshot.child("name").getValue().toString();
+                                    final String retStatus = dataSnapshot.child("status").getValue().toString();
+
+                                    holder.userName.setText(retName);
+                                    holder.userStatus.setText("Last Seen: " + "\n" + "Date "+ " Time");
+
+                                    holder.itemView.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            Intent chatIntent = new Intent(getContext(), ChatActivity.class);
+                                            chatIntent.putExtra("visit_user_id", usersID);
+                                            chatIntent.putExtra("visit_user_name", retName);
+                                            startActivity(chatIntent);
+                                        }
+                                    });
                                 }
-
-                                final String retName = dataSnapshot.child("name").getValue().toString();
-                                final String retStatus = dataSnapshot.child("status").getValue().toString();
-
-                                holder.userName.setText(retName);
-                                holder.userStatus.setText("Last Seen: " + "\n" + "Date "+ " Time");
-                            }
+                               }
 
                             @Override
                             public void onCancelled(@NonNull DatabaseError databaseError) {
